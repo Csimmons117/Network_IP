@@ -1,8 +1,12 @@
 #   Author: Cameron Simmons
-#   Date: 1/3/2025
+#   Date: 1/7/2025
 #   Verison: 1
-#   Last modified: 1/3/2025
+#   Last modified: 1/7/2025
 #   Description: This code will ask a user to input a value of an IP and will break it down to the network address, broadcast address, and subnet 
+
+# Gets the IP address entered and splits in to a list 
+# ['192', '168', '59', '126']
+
 def getIP ():    
     octet_one = int(input("Enter the first octet of the ip address: "))
     while (octet_one) < 0 or (octet_one) > 255:
@@ -20,13 +24,66 @@ def getIP ():
     octet_dot = "."
 
     ip_address = str((str(octet_one) + octet_dot + str(octet_two) + octet_dot + str(octet_three) + octet_dot + str(octet_four)))
-    byte = ip_address.split(".")
-    return byte
+    ipAddress = ip_address.split(".")
+    return ipAddress
+#
+## As long as 
+def binaryConvert(value):
+     bits = ""      # 0
+     while value != 0:
+     
+          remainderBinary = value % 2 
+          value = value // 2
+          
+          bits += str(remainderBinary)
+     return bits
+
+## Reverse string
+def switch(x):
+     return x [::-1]
+
 
 # Start of the program 
+first_binary  =  0
+remainder = "" # 0
 
 print(" \n")
 print("Welcome please enter your ip address below")
 print(" \n")
-byte = getIP()
-print(byte)
+ipAddress = getIP()
+
+firstOctet  = int(ipAddress[0])
+firstBinaryStr = binaryConvert(firstOctet)
+firstBinaryStr = switch(firstBinaryStr)
+print("")
+print(firstBinaryStr)
+print("")
+
+secondOctet = int(ipAddress[1])
+secondBinaryStr =binaryConvert(secondOctet)
+secondBinaryStr = switch(secondBinaryStr)
+print("")
+print(secondBinaryStr)
+print("")
+
+#
+thirdOctet  = int(ipAddress[2])
+
+thirdBinaryStr = binaryConvert(thirdOctet)
+thirdBinaryStr = switch(thirdBinaryStr)
+print(thirdBinaryStr)
+print("")
+print(thirdBinaryStr)
+print("")
+
+#
+fourthOctet = int(ipAddress[3])
+fourthBinaryStr = binaryConvert(fourthOctet)
+fourthBinaryStr = switch(fourthBinaryStr)
+print("")
+print(fourthBinaryStr)
+print("")
+
+
+
+print(firstBinaryStr +"|" + secondBinaryStr +"|"+ thirdBinaryStr +"|"+ fourthBinaryStr)
