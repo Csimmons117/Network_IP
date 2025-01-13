@@ -30,6 +30,7 @@ def getIP ():
 ## As long as 
 def binaryConvert(value):
      bits = ""      # 0
+
      while value != 0:
      
           remainderBinary = value % 2 
@@ -46,6 +47,8 @@ def switch(x):
 # Start of the program 
 first_binary  =  0
 remainder = "" # 0
+bitSpace = 0b11111111
+
 
 print(" \n")
 print("Welcome please enter your ip address below")
@@ -84,6 +87,15 @@ print("")
 print(fourthBinaryStr)
 print("")
 
+first = int(firstBinaryStr, 2)## Important for the binary conversion 
+#firstBinaryStr = firstBinaryStr & bitSpace
+
+#test = & bitSpace
+
+value = first & bitSpace
 
 
-print(firstBinaryStr +"|" + secondBinaryStr +"|"+ thirdBinaryStr +"|"+ fourthBinaryStr)
+print(f"{value:08b}")
+
+
+#print(firstBinaryStr +"|" + secondBinaryStr +"|"+ thirdBinaryStr +"|"+ fourthBinaryStr)
